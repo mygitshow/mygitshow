@@ -11,10 +11,18 @@
 
 <body>
     <div>
-        <div class="page red"></div>
+        <div class="page first">
+
+        </div>
         <div class="page yellow"></div>
         <div class="page green"></div>
-        <div class="page black"></div>
+        <div class="page forth">
+            <div class="font"> </div>
+            <div class="map">
+                <div class="sign"></div>
+            </div>
+            <div class="arrow"></div>
+        </div>
 
         <div class="page fivth">
             <div class="sharediv">
@@ -37,46 +45,56 @@
             util: {},
             init: {}
         };
-        app.util = {
-                $: function(selector, node) {
-                    return (node || document).querySelectorAll(selector);
-                }
-            }
-            // 获取窗口宽度 
-            ! function(util) {
-                let $ = util.$;
-                //初始化设置页面长宽
-                if (window.innerWidth)
-                    winWidth = window.innerWidth;
-                else if ((document.body) && (document.body.clientWidth))
-                    winWidth = document.body.clientWidth;
-                if (window.innerHeight)
-                    winHeight = window.innerHeight;
-                else if ((document.body) && (document.body.clientHeight))
-                    winHeight = document.body.clientHeight;
-                let page = $('.page');
-                for (let i = 0; i < page.length; i++) {
-                    page[i].style.height = winHeight + 'px';
-                    page[i].style.width = winWidth + 'px';
-                }
-                let fivthcont = $('.cont')[0];
-                let contHeight = winHeight / 2;
-                let contWidth = winWidth * 0.6;
-                fivthcont.style.height = contHeight + 'px';
-                fivthcont.style.marginTop = -contHeight / 2 + 'px';
-                fivthcont.style.marginLeft = -contWidth / 2 + 'px';
 
-                //手指
-                let fivthfinger = $('.finger')[0];
-                let fingerHeight = winHeight * 0.1;
-                let fingerWidth = winWidth * 0.15;
-                fivthfinger.style.height = fingerHeight + 'px';
-                fivthfinger.style.width = fingerWidth + 'px';
-                //文字
-                let fivthshare = $('.share')[0];
-                let shareHeight = winHeight * 0.03;
-                fivthshare.style.height = shareHeight + 'px';
-            }(app.util)
+        app.util = {
+            $: function(selector, node) {
+                return (node || document).querySelectorAll(selector);
+            }
+        };
+
+        // 获取窗口宽度 
+        ! function(util) {
+            let $ = util.$;
+            //初始化设置页面长宽
+            if (window.innerWidth)
+                winWidth = window.innerWidth;
+            else if ((document.body) && (document.body.clientWidth))
+                winWidth = document.body.clientWidth;
+            if (window.innerHeight)
+                winHeight = window.innerHeight;
+            else if ((document.body) && (document.body.clientHeight))
+                winHeight = document.body.clientHeight;
+            let page = $('.page');
+            for (let i = 0; i < page.length; i++) {
+                page[i].style.height = winHeight + 'px';
+                page[i].style.width = winWidth + 'px';
+            }
+
+            let font = $('.font')[0];
+            let fontHeight = winHeight * 0.3;
+            font.style.height = fontHeight + 'px';
+            let map = $('.map')[0];
+            let mapHeight = winHeight * 0.4;
+            map.style.height = mapHeight + 'px';
+            //第5页
+            let fivthcont = $('.cont')[0];
+            let contHeight = winHeight / 2;
+            let contWidth = winWidth * 0.6;
+            fivthcont.style.height = contHeight + 'px';
+            fivthcont.style.marginTop = -contHeight / 2 + 'px';
+            fivthcont.style.marginLeft = -contWidth / 2 + 'px';
+
+            //手指
+            let fivthfinger = $('.finger')[0];
+            let fingerHeight = winHeight * 0.1;
+            let fingerWidth = winWidth * 0.15;
+            fivthfinger.style.height = fingerHeight + 'px';
+            fivthfinger.style.width = fingerWidth + 'px';
+            //文字
+            let fivthshare = $('.share')[0];
+            let shareHeight = winHeight * 0.03;
+            fivthshare.style.height = shareHeight + 'px';
+        }(app.util)
 
 
 

@@ -3,18 +3,89 @@
     padding: 0px;
 }
 
+
 .page {
     background: url(./images/bg.jpg);
     background-size: cover;
 }
 
-.red {}
+.first {
+    background: url(./images/p1/p1_bg.png)
+}
 
 .yellow {}
 
 .green {}
 
-.black {}
+.forth {
+    position: relative;
+    .font{
+        position:absolute;
+        top:8%;
+        left: 10%;
+        width: 80%;
+        background: url(./images/p4/p4_t1.png);
+        background-size: 100% 100%;
+    }
+    .map{
+        position:absolute;
+        top:45%;
+        left: 10%;
+        width: 80%;
+        background: url(./images/p4/p4_map.png);
+        background-size: 100% 100%;
+        .sign{
+            position: absolute;
+            top:-15%;
+            right: 18%;
+            width:24%;
+            height: 35%;
+            background: url(./images/p4/p4_sign.png);
+            background-size: 100% 100%;
+            animation: signani infinite 2s;
+            animation-delay: -2s; /* W3C 和 Opera */
+            -moz-animation-delay: -2s; /* Firefox */
+            -webkit-animation-delay: -2s; /* Safari 和 Chrome */
+            transform-origin: 50% 100%;
+            
+        }
+        @keyframes signani{
+            20%{
+                transform: scaleY(0.3);
+            }
+            
+            0%,30%,50%,100%{
+                 transform: scaleY(1);
+            }
+            40%{
+                transform: scaleY(0.8)
+            }
+            
+        }
+    }
+    .arrow{
+        position: absolute;
+        bottom: 5%;
+        width: 15%;
+        height: 3%;
+        left: 50%;
+        margin-left: -7.5%;
+        animation: topslide infinite 1s;
+        background: url(./images/jiantou.png);
+        background-size: 100% 100%;
+
+    }
+    @keyframes topslide{
+        from{
+            transform: translateY(10px);
+        }
+        to{
+            transform: translateY(-10px);
+        }
+    }
+
+
+}
 
 .fivth{
     position: relative;
