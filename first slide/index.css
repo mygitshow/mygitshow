@@ -2,17 +2,24 @@
   margin: 0px;
   padding: 0px;
 }
-.page {
+#bigbox {
+  position: relative;
+  top: 0px;
+  transition: top 1s;
+}
+#bigbox .page {
   background: url(images/bg.jpg);
   background-size: cover;
 }
-.first {
+#bigbox .first {
   background: url(images/p1/p1_bg.png);
 }
-.forth {
+#bigbox .forth {
   position: relative;
+  top: 0px;
+  transition: all 1s;
 }
-.forth .font {
+#bigbox .forth .font {
   position: absolute;
   top: 8%;
   left: 10%;
@@ -20,7 +27,7 @@
   background: url(images/p4/p4_t1.png);
   background-size: 100% 100%;
 }
-.forth .map {
+#bigbox .forth .map {
   position: absolute;
   top: 45%;
   left: 10%;
@@ -28,7 +35,7 @@
   background: url(images/p4/p4_map.png);
   background-size: 100% 100%;
 }
-.forth .map .sign {
+#bigbox .forth .map .sign {
   position: absolute;
   top: -15%;
   right: 18%;
@@ -59,7 +66,7 @@
     transform: scaleY(0.8);
   }
 }
-.forth .arrow {
+#bigbox .forth .arrow {
   position: absolute;
   bottom: 5%;
   width: 15%;
@@ -78,25 +85,25 @@
     transform: translateY(-10px);
   }
 }
-.fivth {
+#bigbox .fivth {
   position: relative;
 }
-.fivth .sharediv {
+#bigbox .fivth .sharediv {
   position: absolute;
   top: 2%;
   right: 5%;
   width: 20%;
 }
-.fivth .sharediv .finger {
+#bigbox .fivth .sharediv .finger {
   background: url(images/p5/p5_finger.png);
   background-size: 100% 100%;
 }
-.fivth .sharediv .share {
+#bigbox .fivth .sharediv .share {
   margin-top: 2%;
   background: url(images/p5/p5_fenxiang.png);
   background-size: 100% 100%;
 }
-.fivth .cont {
+#bigbox .fivth .cont {
   position: absolute;
   top: 50%;
   left: 50%;
