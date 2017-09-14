@@ -2,6 +2,87 @@
   margin: 0px;
   padding: 0px;
 }
+@keyframes leaff {
+  0% {
+    transform: rotateY(0deg);
+  }
+  40% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.arrow {
+  position: absolute;
+  bottom: 5%;
+  width: 15%;
+  height: 3%;
+  left: 50%;
+  margin-left: -7.5%;
+  -webkit-animation: topslide infinite 1s;
+  -moz-animation: topslide infinite 1s;
+  -ms-animation: topslide infinite 1s;
+  animation: topslide infinite 1s;
+  background: url(images/jiantou.png);
+  background-size: 100% 100%;
+}
+@-webkit-keyframes topslide {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+@-ms-keyframes topslide {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+@-moz-keyframes topslide {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
 #bigbox {
   position: relative;
   top: 0px;
@@ -10,14 +91,399 @@
 #bigbox .page {
   background: url(images/bg.jpg);
   background-size: cover;
-}
-#bigbox .first {
-  background: url(images/p1/p1_bg.png);
-}
-#bigbox .forth {
   position: relative;
-  top: 0px;
-  transition: all 1s;
+}
+#bigbox .first .water {
+  position: absolute;
+  z-index: 1;
+  background: url(images/p1/p1_shui.png) no-repeat;
+  background-position: 0% 100%;
+  width: 100%;
+}
+#bigbox .first .water .bg {
+  position: absolute;
+  z-index: 100;
+  background: url(images/p1/p1_bg.png);
+  width: 100%;
+  background-size: 100% 100%;
+}
+#bigbox .first .water .yuanf {
+  position: absolute;
+  display: none;
+  top: 35%;
+  left: 48%;
+  z-index: 100;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  width: 5%;
+  background: url(images/p1/p1_yuan.png);
+  background-size: 100% 100%;
+  -webkit-animation: yuanfAni infinite 2s;
+  -moz-animation: yuanfAni infinite 2s;
+  -ms-animation: yuanfAni infinite 2s;
+  animation: yuanfAni infinite 2s;
+}
+@keyframes yuanfAni {
+  0%,
+  100% {
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+  }
+  10%,
+  90% {
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+  }
+  20%,
+  80% {
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+  }
+  30%,
+  70% {
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    transform: scale(1.5);
+  }
+  40%,
+  60% {
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    transform: scale(1.7);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.7);
+  }
+}
+@-webkit-keyframes yuanfAni {
+  0%,
+  100% {
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+  }
+  10%,
+  90% {
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+  }
+  20%,
+  80% {
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+  }
+  30%,
+  70% {
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    transform: scale(1.5);
+  }
+  40%,
+  60% {
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    transform: scale(1.7);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.7);
+  }
+}
+@-ms-keyframes yuanfAni {
+  0%,
+  100% {
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+  }
+  10%,
+  90% {
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+  }
+  20%,
+  80% {
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+  }
+  30%,
+  70% {
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    transform: scale(1.5);
+  }
+  40%,
+  60% {
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    transform: scale(1.7);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.7);
+  }
+}
+@-moz-keyframes yuanfAni {
+  0%,
+  100% {
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+  }
+  10%,
+  90% {
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+  }
+  20%,
+  80% {
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+  }
+  30%,
+  70% {
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    transform: scale(1.5);
+  }
+  40%,
+  60% {
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    transform: scale(1.7);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.7);
+  }
+}
+#bigbox .first .water .leafff,
+#bigbox .first .water .leaffs {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  width: 5%;
+  background: url(images/p1/p1_leaf.png);
+  background-size: 100% 100%;
+  -webkit-animation: leaff infinite 1s;
+  -moz-animation: leaff infinite 1s;
+  -ms-animation: leaff infinite 1s;
+  animation: leaff infinite 1s;
+}
+#bigbox .first .water .leafff {
+  top: 30%;
+}
+#bigbox .first .water .leaffs {
+  top: 22%;
+}
+#bigbox .second .en {
+  position: absolute;
+  top: 5%;
+  right: 0%;
+  width: 20%;
+  background: url(images/p2/p2_en.png);
+  background-size: 100% 100%;
+}
+#bigbox .second .title {
+  position: absolute;
+  left: 10%;
+  top: 9%;
+  width: 80%;
+  display: none;
+  background: url(images/p2/p2_title.png);
+  background-size: 100% 100%;
+}
+#bigbox .second .kv {
+  position: absolute;
+  top: 40%;
+  width: 80%;
+  left: 10%;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  background: url(images/p2/p2_kv.png);
+  background-size: 100% 100%;
+}
+#bigbox .second .txt {
+  position: absolute;
+  z-index: 1;
+  top: 65%;
+  width: 70%;
+  left: 20%;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  background: url(images/p2/p2_text1.png);
+  background-size: 100% 100%;
+}
+#bigbox .second .leaff {
+  position: absolute;
+  width: 3%;
+  display: none;
+  background: url(images/p2/p2_leaf2.png);
+  background-size: 100% 100%;
+  -webkit-animation: leaff infinite 0.5s;
+  -moz-animation: leaff infinite 0.5s;
+  -ms-animation: leaff infinite 0.5s;
+  animation: leaff infinite 0.5s;
+  transform-origin: 50% 50%;
+}
+#bigbox .second .leafs {
+  position: absolute;
+  display: none;
+  width: 3%;
+  background: url(images/p2/p2_leaf1.png);
+  background-size: 100% 100%;
+  -webkit-animation: leaff infinite 0.5s;
+  -moz-animation: leaff infinite 0.5s;
+  -ms-animation: leaff infinite 0.5s;
+  animation: leaff infinite 0.5s;
+}
+#bigbox .second .butterfly {
+  position: absolute;
+  z-index: 999;
+  right: -10%;
+  top: 60%;
+  width: 5%;
+  background: url(images/p2/p1_butterfly.png);
+  background-size: 100% 100%;
+  -webkit-animation: fly infinite 1s;
+  -moz-animation: fly infinite 1s;
+  -ms-animation: fly infinite 1s;
+  animation: fly infinite 1s;
+}
+@keyframes fly {
+  50% {
+    transform: translateY(20%);
+  }
+  0%,
+  100% {
+    transform: translateY(-20%);
+  }
+}
+@-webkit-keyframes fly {
+  50% {
+    transform: translateY(20%);
+  }
+  0%,
+  100% {
+    transform: translateY(-20%);
+  }
+}
+@-ms-keyframes fly {
+  50% {
+    transform: translateY(20%);
+  }
+  0%,
+  100% {
+    transform: translateY(-20%);
+  }
+}
+@-moz-keyframes fly {
+  50% {
+    transform: translateY(20%);
+  }
+  0%,
+  100% {
+    transform: translateY(-20%);
+  }
+}
+#bigbox .second .ctext {
+  position: absolute;
+  bottom: 13%;
+  left: 10%;
+  width: 80%;
+  background: url(images/p2/p2_ctext2.png);
+  background-size: 100% 100%;
+}
+#bigbox .third .thirddiv {
+  width: 80%;
+}
+#bigbox .third .divf {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  background: url(images/p3/p3_t1.png);
+  background-size: 100% 100%;
+}
+#bigbox .third .divf .clock {
+  position: absolute;
+  left: 50%;
+  width: 15%;
+  top: 5%;
+  margin-left: -6.5%;
+  background: url(images/clock.png);
+  background-size: 100% 100%;
+}
+#bigbox .third .divf .clock .hour {
+  position: absolute;
+  left: -2%;
+  top: 8%;
+  width: 100%;
+  background: url(images/hour.png);
+  background-size: 100% 100%;
+  -webkit-animation: rotate360 infinite 1s;
+  -moz-animation: rotate360 infinite 1s;
+  -ms-animation: rotate360 infinite 1s;
+  animation: rotate360 infinite 1s;
+}
+#bigbox .third .divf .clock .min {
+  position: absolute;
+  left: -2%;
+  top: 8%;
+  width: 100%;
+  background: url(images/min.png);
+  background-size: 100% 100%;
+  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  -webkit-animation: rotate360 infinite 1s;
+  -moz-animation: rotate360 infinite 1s;
+  -ms-animation: rotate360 infinite 1s;
+  animation: rotate360 infinite 1s;
+}
+#bigbox .third .divs {
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  background: url(images/p3/p3_t2.png);
+  background-size: 100% 100%;
+}
+#bigbox .third .divt {
+  position: absolute;
+  top: 65%;
+  left: 15%;
+  background: url(images/p3/p3_t3.png);
+  background-size: 100% 100%;
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
 }
 #bigbox .forth .font {
   position: absolute;
@@ -43,13 +509,10 @@
   height: 35%;
   background: url(images/p4/p4_sign.png);
   background-size: 100% 100%;
+  -webkit-animation: signani infinite 2s;
+  -moz-animation: signani infinite 2s;
+  -ms-animation: signani infinite 2s;
   animation: signani infinite 2s;
-  animation-delay: -2s;
-  /* W3C 和 Opera */
-  -moz-animation-delay: -2s;
-  /* Firefox */
-  -webkit-animation-delay: -2s;
-  /* Safari 和 Chrome */
   transform-origin: 50% 100%;
 }
 @keyframes signani {
@@ -66,27 +529,47 @@
     transform: scaleY(0.8);
   }
 }
-#bigbox .forth .arrow {
-  position: absolute;
-  bottom: 5%;
-  width: 15%;
-  height: 3%;
-  left: 50%;
-  margin-left: -7.5%;
-  animation: topslide infinite 1s;
-  background: url(images/jiantou.png);
-  background-size: 100% 100%;
-}
-@keyframes topslide {
-  from {
-    transform: translateY(10px);
+@-ms-keyframes signani {
+  20% {
+    transform: scaleY(0.3);
   }
-  to {
-    transform: translateY(-10px);
+  0%,
+  30%,
+  50%,
+  100% {
+    transform: scaleY(1);
+  }
+  40% {
+    transform: scaleY(0.8);
   }
 }
-#bigbox .fivth {
-  position: relative;
+@-moz-keyframes signani {
+  20% {
+    transform: scaleY(0.3);
+  }
+  0%,
+  30%,
+  50%,
+  100% {
+    transform: scaleY(1);
+  }
+  40% {
+    transform: scaleY(0.8);
+  }
+}
+@-webkit-keyframes signani {
+  20% {
+    transform: scaleY(0.3);
+  }
+  0%,
+  30%,
+  50%,
+  100% {
+    transform: scaleY(1);
+  }
+  40% {
+    transform: scaleY(0.8);
+  }
 }
 #bigbox .fivth .sharediv {
   position: absolute;
@@ -95,11 +578,52 @@
   width: 20%;
 }
 #bigbox .fivth .sharediv .finger {
+  margin-left: 20%;
   background: url(images/p5/p5_finger.png);
   background-size: 100% 100%;
+  -webkit-animation: fingerAni infinite 1s;
+  -moz-animation: fingerAni infinite 1s;
+  -ms-animation: fingerAni infinite 1s;
+  animation: fingerAni infinite 1s;
+}
+@keyframes fingerAni {
+  0%,
+  100% {
+    transform: translate(-10%, 10%);
+  }
+  50% {
+    transform: translate(10%, -10%);
+  }
+}
+@-webkit-keyframes fingerAni {
+  0%,
+  100% {
+    transform: translate(-10%, 10%);
+  }
+  50% {
+    transform: translate(10%, -10%);
+  }
+}
+@-ms-keyframes fingerAni {
+  0%,
+  100% {
+    transform: translate(-10%, 10%);
+  }
+  50% {
+    transform: translate(10%, -10%);
+  }
+}
+@-moz-keyframes fingerAni {
+  0%,
+  100% {
+    transform: translate(-10%, 10%);
+  }
+  50% {
+    transform: translate(10%, -10%);
+  }
 }
 #bigbox .fivth .sharediv .share {
-  margin-top: 2%;
+  margin-top: 20%;
   background: url(images/p5/p5_fenxiang.png);
   background-size: 100% 100%;
 }

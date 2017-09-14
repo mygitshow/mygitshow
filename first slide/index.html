@@ -6,16 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./index.css">
+    <script src="./JS/jquery-1.9.1.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <div id='bigbox'>
         <div class="page first">
-
+            <div class="water">
+                <div class="bg"></div>
+                <div class="yuanf"></div>
+                <div class="yuans"></div>
+                <div class="leafff"></div>
+                <div class="leaffs"></div>
+            </div>
         </div>
-        <div class="page yellow"></div>
-        <div class="page green"></div>
+        <div class="page second">
+            <div class="en"></div>
+            <div class='title'></div>
+            <div class="kv"></div>
+            <div class="txt"></div>
+            <div class="leaff"></div>
+            <div class="leafs"></div>
+            <div class="butterfly"></div>
+            <div class="ctext"></div>
+            <div class="arrow"></div>
+        </div>
+
+        <div class="page third">
+            <div class="thirddiv divf">
+                <div class="clock">
+                    <div class="hour">
+                    </div>
+                    <div class="min"></div>
+                </div>
+            </div>
+            <div class="thirddiv divs">
+            </div>
+            <div class="thirddiv divt"></div>
+            <div class="arrow"></div>
+        </div>
+
         <div class="page forth">
             <div class="font"> </div>
             <div class="map">
@@ -41,20 +72,9 @@
 </body>
 <script>
     window.onload = function() {
-        var app = {
-            util: {},
-            init: {}
-        };
 
-        app.util = {
-            $: function(selector, node) {
-                return (node || document).querySelectorAll(selector);
-            }
-        };
-
-        // 获取窗口宽度 
         ! function(util) {
-            let $ = util.$;
+            // let $ = util.$;
             //初始化设置页面长宽
             if (window.innerWidth)
                 winWidth = window.innerWidth;
@@ -74,10 +94,10 @@
                 startY,
                 x, //滑动的距离   
                 y,
-                aboveY = 0; //设一个全局变量记录上一次内部块滑动的位置    
+                aboveY = 0, //设一个全局变量记录上一次内部块滑动的位置
+                Pagecount = 1; //第几张
 
-            let bigbox = $('#bigbox')[0];
-            console.log(bigbox)
+            let bigbox = document.getElementById('bigbox');
 
             function touchSatrt(e) { //触摸   
                 e.preventDefault();
@@ -88,42 +108,221 @@
             function touchMove(e) { //滑动             
                 e.preventDefault();
                 var touch = e.touches[0];
-                y = touch.pageY - startY; //滑动的距离   
-                //inner.style.webkitTransform = 'translate(' + 0+ 'px, ' + y + 'px)';  //也可以用css3的方式                 
+                y = touch.pageY - startY; //滑动的距离          
             }
 
             function touchEnd(e) { //手指离开屏幕   
                 e.preventDefault();
-                // let bigboxTop = ;
                 if (y < 0) { //上划
-                    alert('厌殇是总受')
-                    console.log(aboveY);
+
+                    if (aboveY > winHeight * (-4)) {
+                        Pagecount++;
+                        bigbox.style.top = aboveY - winHeight + 'px';
+                    }
+
+                    //第二页
+                    function callleaff() {
+                        leaff.css({
+                            top: '63%',
+                            left: '80%',
+                            display: 'none'
+                        });
+                        leaff.css('display', 'block')
+                        leaff.animate({
+                            top: '60%',
+                            left: '85%',
+                        }, 2000, function() {
+                            callleaff();
+                        })
+                    }
+
+                    function callleafs() {
+                        leafs.css({
+                            top: '74%',
+                            left: '80%',
+                            display: 'none'
+                        });
+                        leafs.css('display', 'block')
+                        leafs.animate({
+                            top: '77%',
+                            left: '85%',
+                        }, 2000, callleafs)
+                    }
+
+                    if (Pagecount == 2) {
+                        title.fadeIn(500, function() {
+                            kv.animate({
+                                top: '30%',
+                                opacity: '1'
+                            }, 500, function() {
+                                text.animate({
+                                    left: '15%',
+                                    opacity: '1'
+                                }, 1000, function() {
+                                    callleaff();
+                                    callleafs();
+                                    butterfly.animate({
+                                        left: '-10%'
+                                    }, 3000)
+                                })
+                            })
+                        });
+                    }
+                    //第三页
+                    if (Pagecount == 3) {
+                        console.log($('.divs'))
+                        $('.divs').animate({
+                            left: '10%',
+                            opacity: '1'
+                        }, 800, function() {
+                            $('.divt').animate({
+                                left: '10%',
+                                opacity: '1'
+                            }, 1000);
+                        });
+
+                    }
+                }
+                if (y > 0) { //下划
                     if (aboveY < 0) {
                         bigbox.style.top = aboveY + winHeight + 'px';
+                        Pagecount--;
                     } else {
                         bigbox.style.top = 0 + 'px'
                     }
                 }
-                if (y > 0) { //下滑
-                    if (aboveY > winHeight * (-4)) {
-                        console.log(aboveY - winHeight);
-                        bigbox.style.top = aboveY - winHeight + 'px';
-                    }
-                }
                 aboveY = parseInt(bigbox.style.top);
+            }
 
-
-            } //   
             bigbox.addEventListener('touchstart', touchSatrt, false);
             bigbox.addEventListener('touchmove', touchMove, false);
             bigbox.addEventListener('touchend', touchEnd, false);
 
+            let waterX = 0,
+                waterY = 100;
+
+            function waterAni() {
+                setTimeout(function() {
+                    waterX + 5;
+                    waterY--;
+                    water.css('backgroundPosition', waterX + '% ' + waterY + '%');
+                    if (waterY > 87) {
+                        waterAni();
+                    } else {
+                        yuanf.css('display', 'block')
+                        yuanf.animate({
+                            left: '45%',
+                            top: '30%',
+                        }, 1000, function() {
+                            yuanf.animate({
+                                left: '48%',
+                                top: '25%'
+                            }, 1000, function() {
+                                yuanf.css('display', 'none')
+                            })
+                        })
+                        return;
+                    }
+                    console.log(waterY);
+                }, 100);
+            }
+            waterAni();
+
+            //第一页
+            let bg = $('.bg')
+            bg.height('100%');
+            let water = $('.water')
+            water.height('100%');
+            let yuanf = $('.yuanf')
+            yuanf.height(winWidth * 0.05 + 'px');
+            let leafff = $('.leafff');
+            let leaffs = $('.leaffs');
+
+
+            function leaffsAni() {
+                leaffs.css({
+                    top: '22%',
+                    left: '50%',
+                    opacity: '1'
+                })
+                leaffs.animate({
+                    left: '47%',
+                    top: '19%'
+                }, 1000, function() {
+                    leaffs.animate({
+                        left: '53%',
+                        top: '16%',
+                        opacity: '0'
+                    }, 1500, function() {
+                        leaffsAni();
+                    })
+                });
+            }
+
+            function leafffAni() {
+                leafff.css({
+                    top: '30%',
+                    left: '50%',
+                    opacity: '1'
+                })
+                leafff.animate({
+                    left: '47%',
+                    top: '27%'
+                }, 1000, function() {
+                    leafff.animate({
+                        left: '53%',
+                        top: '24%',
+                        opacity: '0'
+                    }, 1500, function() {
+                        leafffAni();
+                    })
+                });
+            }
+            leafffAni();
+            leaffsAni();
+            leafff.height(winWidth * 0.07 + 'px');
+            leaffs.height(winWidth * 0.07 + 'px');
+
+            //第二页
+            let en = $('.en');
+            en.height(100);
+            en.css('height', '5%');
+            let title = $('.title');
+            title.css('height', '15%');
+            let kv = $('.kv');
+            kv.css('height', '30%');
+            let text = $('.txt');
+            text.css('height', '10%');
+            let ctext = $('.ctext');
+            ctext.css('height', '10%');
+            let butterfly = $('.butterfly');
+            butterfly.height('5%');
+            let leaff = $('.leaff');
+            leaff.height('3%');
+            let leafs = $('.leafs');
+            leafs.height('3%');
+
+            //第三页
+            let thirddiv = $('.thirddiv');
+            for (var i = 0; i < thirddiv.length; i++) {
+                thirddiv[i].style.height = winHeight * 0.2 + 'px';
+            }
+            let clock = $('.clock')[0];
+            clock.style.height = 0.1 * winHeight + 'px';
+            let hour = $('.hour')[0];
+            hour.style.height = winWidth * 0.15 + 'px';
+            let min = $('.min')[0];
+            min.style.height = winWidth * 0.15 + 'px';
+
+            //第四页
+            //字体
             let font = $('.font')[0];
             let fontHeight = winHeight * 0.3;
             font.style.height = fontHeight + 'px';
             let map = $('.map')[0];
             let mapHeight = winHeight * 0.4;
             map.style.height = mapHeight + 'px';
+
             //第5页
             let fivthcont = $('.cont')[0];
             let contHeight = winHeight / 2;
@@ -138,15 +337,12 @@
             let fingerWidth = winWidth * 0.15;
             fivthfinger.style.height = fingerHeight + 'px';
             fivthfinger.style.width = fingerWidth + 'px';
+
             //文字
             let fivthshare = $('.share')[0];
             let shareHeight = winHeight * 0.03;
             fivthshare.style.height = shareHeight + 'px';
-        }(app.util)
-
-
-
-
+        }()
     }
 </script>
 

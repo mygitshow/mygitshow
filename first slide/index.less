@@ -2,8 +2,117 @@
     margin: 0px;
     padding: 0px;
 }
+.animation-delay(@time){
+    animation-delay: @time ;
+    -webkit-animation-delay: @time ;
+    -moz-animation-delay: @time ;
+    -o-animation-delay: @time ;
+}
+.border-radius(@radius){
+    border-radius: @radius;
+    -webkit-border-radius:@radius;
+    -moz-border-radius:@radius;
+    -o-border-radius:@radius;
+}
 
+.opacity(@num){
+        // filter:alpha(opacity = @num*@100)  ;  
+        -moz-opacity:@num;  
+        -khtml-opacity:@num;  
+        opacity:@num;
+}
+.animation(@name,@count,@Anitime){
+    -webkit-animation: @name @count @Anitime;
+    -moz-animation: @name @count @Anitime;
+    -ms-animation: @name @count @Anitime;
+    animation: @name @count @Anitime;
+}
 
+.arrow(){
+    .arrow{
+            position: absolute;
+            bottom: 5%;
+            width: 15%;
+            height: 3%;
+            left: 50%;
+            margin-left: -7.5%;
+            .animation(topslide, infinite, 1s);
+            background: url(./images/jiantou.png);
+            background-size: 100% 100%;
+        }
+        @-webkit-keyframes topslide{
+            from{
+                transform: translateY(10px);
+            }
+            to{
+                transform: translateY(-10px);
+            }
+        }
+         @-ms-keyframes topslide{
+            from{
+                transform: translateY(10px);
+            }
+            to{
+                transform: translateY(-10px);
+            }
+        }
+        @-moz-keyframes topslide{
+            from{
+                transform: translateY(10px);
+            }
+            to{
+                transform: translateY(-10px);
+            }
+        }
+}
+
+ @keyframes leaff{
+           0%{
+                transform: rotateY(0deg);
+           }
+            40%{
+                transform: rotateY(180deg) ;
+            }
+            100%{
+                transform: rotateY(360deg) ;
+            }
+        }
+.rotate360(){
+    @keyframes rotate360{
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+        }
+    }
+    @-webkit-keyframes rotate360{
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+        }
+    }
+    @-ms-keyframes rotate360{
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+        }
+    }
+    @-moz-keyframes rotate360{
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+        }
+}
+}
+.rotate360();
+.arrow();
 #bigbox{
     position: relative;
     top: 0px;
@@ -11,20 +120,311 @@
     .page {
         background: url(./images/bg.jpg);
         background-size: cover;
+        position: relative;
     }
 
     .first {
-        background: url(./images/p1/p1_bg.png)
+        .water{
+            position: absolute;
+            z-index: 1;
+            background: url(./images/p1/p1_shui.png) no-repeat;
+            background-position: 0% 100%;
+            width: 100%;
+            .bg{
+            position: absolute;
+            z-index: 100;
+            background: url(./images/p1/p1_bg.png);
+            width: 100%;
+            background-size: 100% 100%;
+            }
+            .yuanf{
+                 position: absolute;
+                 display: none;
+                 top:35%;
+                 left: 48%;
+                  z-index: 100;
+                .border-radius(50%);
+                width: 5%;
+                background: url(./images/p1/p1_yuan.png);
+                background-size: 100% 100%;
+                .animation(yuanfAni, infinite, 2s)
+            }
+            @keyframes yuanfAni{
+                0%,100%{
+                    .opacity(1);
+                }
+                10%,90%{
+                    .opacity(0.5);
+                }
+                20%,80%{
+                    .opacity(0);
+                }
+                30%,70%{
+                    .opacity(0.7);
+                    transform: scale(1.5);
+                }
+                40%,60%{
+                    .opacity(0.7);
+                    transform: scale(1.7);
+                }
+                50%{
+                    opacity: (0.5);
+                    transform: scale(1.7);
+                }
+            }
+             @-webkit-keyframes yuanfAni{
+                0%,100%{
+                    .opacity(1);
+                }
+                10%,90%{
+                    .opacity(0.5);
+                }
+                20%,80%{
+                    .opacity(0);
+                }
+                30%,70%{
+                    .opacity(0.7);
+                    transform: scale(1.5);
+                }
+                40%,60%{
+                    .opacity(0.7);
+                    transform: scale(1.7);
+                }
+                50%{
+                    opacity: (0.5);
+                    transform: scale(1.7);
+                }
+            }
+               @-ms-keyframes yuanfAni{
+                0%,100%{
+                    .opacity(1);
+                }
+                10%,90%{
+                    .opacity(0.5);
+                }
+                20%,80%{
+                    .opacity(0);
+                }
+                30%,70%{
+                    .opacity(0.7);
+                    transform: scale(1.5);
+                }
+                40%,60%{
+                    .opacity(0.7);
+                    transform: scale(1.7);
+                }
+                50%{
+                    opacity: (0.5);
+                    transform: scale(1.7);
+                }
+            }
+                 @-moz-keyframes yuanfAni{
+                0%,100%{
+                    .opacity(1);
+                }
+                10%,90%{
+                    .opacity(0.5);
+                }
+                20%,80%{
+                    .opacity(0);
+                }
+                30%,70%{
+                    .opacity(0.7);
+                    transform: scale(1.5);
+                }
+                40%,60%{
+                    .opacity(0.7);
+                    transform: scale(1.7);
+                }
+                50%{
+                    opacity: (0.5);
+                    transform: scale(1.7);
+                }
+            }
+            .leafff,.leaffs{
+                 position: absolute;
+                 z-index: 100;
+                 left: 50%;
+                 width:5%;
+                 background: url(./images/p1/p1_leaf.png);
+                 background-size: 100% 100%;
+                 .animation(leaff, infinite, 1s);
+            }
+                .leafff{top:30%;
+                }
+                .leaffs{top:22%;}
+        }
     }
 
-    .yellow {}
+    .second {
+        .en{
+            position: absolute;
+            top:5%;
+            right: 0%;
+            width: 20%;
+            background: url(./images/p2/p2_en.png);
+            background-size:100% 100%;
+        }
+        .title{
+            position: absolute;
+            left: 10%;
+            top:9%;
+            width: 80%;
+            display: none;
+            background: url(./images/p2/p2_title.png);
+            background-size:100% 100%;
+        }
+        .kv{
+            position: absolute;
+            top:40%;
+            width:80%;
+            left: 10%;
+            .opacity(0);
+            background: url(./images/p2/p2_kv.png);
+            background-size:100% 100%;
+        }
+        .txt{
+             position: absolute;
+             z-index: 1;
+             top:65%;
+             width:70%;
+             left: 20%;
+             .opacity(0);
+             background: url(./images/p2/p2_text1.png);
+             background-size:100% 100%
+        }
+        .leaff{
+            position: absolute;
+            width:3%;
+            display: none;
+            background: url(./images/p2/p2_leaf2.png);
+            background-size:100% 100%;
+            .animation(leaff, infinite, 0.5s);
+            transform-origin: 50% 50%;
+        }
+        .leafs{
+            position: absolute;
+            display: none;
+            width:3%;
+            background: url(./images/p2/p2_leaf1.png);
+            background-size:100% 100%;
+            .animation(leaff, infinite, 0.5s);
+        }
+       
+        .butterfly{
+            position: absolute;
+            z-index: 999;
+            right: -10%;
+            top:60%;
+            width: 5%;
+            background: url(./images/p2/p1_butterfly.png);
+            background-size:100% 100%;
+            .animation(fly, infinite, 1s);
+        }
+        @keyframes fly{
+           50%{
+               transform: translateY(20%);
+           }
+            0%,100%{
+                transform: translateY(-20%);
+            }
+        }
+         @-webkit-keyframes fly{
+           50%{
+               transform: translateY(20%);
+           }
+            0%,100%{
+                transform: translateY(-20%);
+            }
+        }
+         @-ms-keyframes fly{
+           50%{
+               transform: translateY(20%);
+           }
+            0%,100%{
+                transform: translateY(-20%);
+            }
+        }
+        @-moz-keyframes fly{
+           50%{
+               transform: translateY(20%);
+           }
+            0%,100%{
+                transform: translateY(-20%);
+            }
+        }
+        .ctext{
+            position: absolute;
+            bottom: 13%;
+            left: 10%;
+            width: 80%;
+            background: url(./images/p2/p2_ctext2.png);
+            background-size:100% 100%
+        }
+    }
 
-    .green {}
+    .third {
+        .thirddiv{
+            width: 80%;
+            width: 80%;
+        }
+        .divf{
+             position: absolute;
+             top:15%;
+            left: 10%;
+            background: url(./images/p3/p3_t1.png);
+            background-size: 100% 100%;
+            .clock{
+                position: absolute;
+                left: 50%;
+                width: 15%;
+                top:5%;
+                margin-left: -6.5%;
+                background: url(./images/clock.png);
+                background-size: 100% 100%;
+                .hour{
+                    position: absolute;
+                    left:-2%;
+                    top:8%;
+                    width: 100%;
+                    background: url(./images/hour.png);
+                    background-size: 100% 100%;
+                    .animation(rotate360, infinite,1s);
+                }
+                .min{
+                    position: absolute;
+                    left:-2%;
+                    top:8%;
+                    width: 100%;
+                    background: url(./images/min.png);
+                    background-size: 100% 100%;
+                    .animation-delay(1s);
+                    .animation(rotate360, infinite,1s);
+                }
+            }
+        }
+        .divs{
+            position: absolute;
+            top:40%;
+            left:0%;
+            filter:alpha(opacity=0); 
+            .opacity(0);
+            background: url(./images/p3/p3_t2.png);
+            background-size: 100% 100%;
+        }
+        .divt{
+            position: absolute;
+            top:65%;
+            left:15%;
+            background: url(./images/p3/p3_t3.png);
+             background-size: 100% 100%;
+              filter:alpha(opacity=0); 
+            .opacity(0);
+             
+        }
+    }
 
     .forth {
-        position: relative;
-        top:0px;
-        transition: all 1s;
         .font{
             position:absolute;
             top:8%;
@@ -48,12 +448,9 @@
                 height: 35%;
                 background: url(./images/p4/p4_sign.png);
                 background-size: 100% 100%;
-                animation: signani infinite 2s;
-                animation-delay: -2s; /* W3C 和 Opera */
-                -moz-animation-delay: -2s; /* Firefox */
-                -webkit-animation-delay: -2s; /* Safari 和 Chrome */
+                .animation(signani, infinite,2s);
+                // animation: signani infinite 2s;
                 transform-origin: 50% 100%;
-                
             }
             @keyframes signani{
                 20%{
@@ -66,46 +463,92 @@
                 40%{
                     transform: scaleY(0.8)
                 }
+            }
+            @-ms-keyframes signani{
+                20%{
+                    transform: scaleY(0.3);
+                }
                 
+                0%,30%,50%,100%{
+                    transform: scaleY(1);
+                }
+                40%{
+                    transform: scaleY(0.8)
+                }
+            }
+            @-moz-keyframes signani{
+                20%{
+                    transform: scaleY(0.3);
+                }
+                
+                0%,30%,50%,100%{
+                    transform: scaleY(1);
+                }
+                40%{
+                    transform: scaleY(0.8)
+                }
+            }
+             @-webkit-keyframes signani{
+                20%{
+                    transform: scaleY(0.3);
+                }
+                
+                0%,30%,50%,100%{
+                    transform: scaleY(1);
+                }
+                40%{
+                    transform: scaleY(0.8)
+                }
             }
         }
-        .arrow{
-            position: absolute;
-            bottom: 5%;
-            width: 15%;
-            height: 3%;
-            left: 50%;
-            margin-left: -7.5%;
-            animation: topslide infinite 1s;
-            background: url(./images/jiantou.png);
-            background-size: 100% 100%;
-
-        }
-        @keyframes topslide{
-            from{
-                transform: translateY(10px);
-            }
-            to{
-                transform: translateY(-10px);
-            }
-        }
-
-
     }
 
     .fivth{
-        position: relative;
         .sharediv{
             position: absolute;
             top:2%;
             right: 5%;
             width:20%;
             .finger{
+                margin-left:20%; 
                 background: url(./images/p5/p5_finger.png);
                 background-size: 100% 100%;
+                .animation(fingerAni,infinite,1s);
+            }
+            @keyframes fingerAni{
+                0%,100%{
+                    transform: translate(-10%,10%);
+                    }
+                50%{
+                    transform: translate(10%,-10%);
+                    }
+            }
+            @-webkit-keyframes fingerAni{
+                0%,100%{
+                    transform: translate(-10%,10%);
+                    }
+                50%{
+                    transform: translate(10%,-10%);
+                    }
+            }
+            @-ms-keyframes fingerAni{
+                0%,100%{
+                    transform: translate(-10%,10%);
+                    }
+                50%{
+                    transform: translate(10%,-10%);
+                    }
+            }
+            @-moz-keyframes fingerAni{
+                0%,100%{
+                    transform: translate(-10%,10%);
+                    }
+                50%{
+                    transform: translate(10%,-10%);
+                    }
             }
             .share{
-                margin-top: 2%;
+                margin-top: 20%;
                 background: url(./images/p5/p5_fenxiang.png);
                 background-size: 100% 100%;
             }
